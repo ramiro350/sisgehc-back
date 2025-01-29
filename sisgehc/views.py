@@ -30,4 +30,3 @@ class InscricaoViewSet(viewsets.ModelViewSet):
     """Exibindo todos as Inscricoes"""
     queryset = Inscricao.objects.all()
     serializer_class = InscricaoSerializer
-
