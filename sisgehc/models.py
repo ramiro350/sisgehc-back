@@ -30,7 +30,7 @@ class Professor(models.Model):
         return self.nome
 
 
-class CoordenadorModel(models.Model):
+class Coordenador(models.Model):
     id_matricula = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=100)
     senha = models.CharField(max_length=50)
@@ -81,7 +81,7 @@ class AtividadeComplementar(models.Model):
     id_atividade = models.AutoField(primary_key=True)
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
     carga_horaria = models.IntegerField()
-    coordenador = models.ForeignKey(CoordenadorModel, on_delete=models.CASCADE)
+    coordenador = models.ForeignKey(Coordenador, on_delete=models.CASCADE)
     data_submissao = models.DateField()
     data_validacao = models.DateField(null=True, blank=True)
     arquivo_certificacao = models.FileField(upload_to="certificados/")
