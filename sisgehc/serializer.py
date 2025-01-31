@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from sisgehc.models import Aluno, Curso, Evento, Professor, Inscricao, CoordenadorModel, Presenca, AtividadeComplementar
+from sisgehc.models import Aluno, Curso, Evento, Professor, Inscricao, Coordenador, Presenca, AtividadeComplementar
 
 class AlunoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Aluno
-        fields = ['id_matricula', 'nome', 'horasComplementares', 'curso','senha']
+        fields = ['id_matricula', 'nome', 'horas_complementares', 'curso','senha']
 
 class CursoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,7 +30,7 @@ class InscricaoSerializer(serializers.ModelSerializer):
 
 class CoordenadorSerializer(serializers.ModelSerializer):
     class Meta:
-        model = CoordenadorModel
+        model = Coordenador
         fields = ['id_matricula', 'nome', 'senha', 'curso']
 
 class PresencaSerializer(serializers.ModelSerializer):
