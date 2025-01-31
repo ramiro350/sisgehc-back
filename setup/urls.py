@@ -17,19 +17,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from sisgehc.views import AlunosViewSet, CursosViewSet, EventoViewSet,ProfessorViewSet, InscricaoViewSet
+from sisgehc.views import AlunosViewSet, CursosViewSet, EventoViewSet, ProfessorViewSet, InscricaoViewSet, AtividadeComplementarViewSet, CoordenadorViewSet
 from django.conf import settings
 from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
-router.register('alunos',AlunosViewSet, basename='Alunos')
-router.register('cursos', CursosViewSet, basename='Cursos')
+router.register('alunos', AlunosViewSet, basename='alunos')
+router.register('cursos', CursosViewSet, basename='cursos')
 router.register('eventos', EventoViewSet, basename='eventos')
-router.register('professor', ProfessorViewSet, basename="Professores")
-router.register('inscricao',InscricaoViewSet, basename='inscricoes')
-
+router.register('professores', ProfessorViewSet, basename="professores")
+router.register('inscricoes', InscricaoViewSet, basename='inscricoes')
+router.register('atividades_complementares', AtividadeComplementarViewSet, basename='atividades_complementares')
+router.register('coordenadores', CoordenadorViewSet, basename='coordenadores')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('', include(router.urls)),  
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
