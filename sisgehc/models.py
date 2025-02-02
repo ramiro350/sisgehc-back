@@ -17,7 +17,7 @@ class Aluno(models.Model):
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nome
+        return f"{self.id_matricula} - {self.nome}"
 
 
 class Professor(models.Model):
@@ -79,7 +79,7 @@ class Presenca(models.Model):
 
 class AtividadeComplementar(models.Model):
     id_atividade = models.AutoField(primary_key=True)
-    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
+    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE) 
     carga_horaria = models.IntegerField()
     coordenador = models.ForeignKey(Coordenador, on_delete=models.CASCADE)
     data_submissao = models.DateField()
@@ -90,4 +90,4 @@ class AtividadeComplementar(models.Model):
     area_de_conhecimento = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"Atividade {self.id_atividade} - {self.tipo_atividade}"
+        return f"Atividade {self.id_atividade} - {self.tipo_atividade} - Aluno: {self.aluno.id_matricula}"
