@@ -45,7 +45,7 @@ class Inscricoes(admin.ModelAdmin):
 admin.site.register(Inscricao, Inscricoes)
 
 class AtividadesComplementares(admin.ModelAdmin):
-    list_display = ('id_atividade', 'aluno', 'carga_horaria', 'coordenador', 'data_submissao', 'tipo_atividade', 'area_de_conhecimento')
+    list_display = ('id_atividade', 'aluno', 'carga_horaria', 'coordenador', 'data_submissao', 'data_validacao','arquivo_certificacao', 'tipo_atividade', 'tipo_atividade', 'sub_tipo', 'area_de_conhecimento')
     list_display_links = ('id_atividade',)
     search_fields = ('aluno__nome', 'tipo_atividade')
     list_per_page = 20

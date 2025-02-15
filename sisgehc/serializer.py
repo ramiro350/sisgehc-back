@@ -41,10 +41,4 @@ class PresencaSerializer(serializers.ModelSerializer):
 class ACSerializer(serializers.ModelSerializer):
     class Meta:
         model = AtividadeComplementar
-        fields = ['id_atividade',
-                  'aluno',
-                  'carga_horaria',
-                  'coordenador',
-                  'data_submissao',
-                  'data_validacao'
-                  ]
+        fields = '__all__'
