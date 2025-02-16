@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from rest_framework import serializers
 
 
 class Curso(models.Model):
@@ -15,6 +17,7 @@ class Aluno(models.Model):
     senha = models.CharField(max_length=50)
     horas_complementares = models.IntegerField(default=0)
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
+    id_user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.nome
@@ -25,6 +28,7 @@ class Professor(models.Model):
     nome = models.CharField(max_length=100)
     senha = models.CharField(max_length=50)
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
+    id_user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.nome
@@ -35,6 +39,7 @@ class Coordenador(models.Model):
     nome = models.CharField(max_length=100)
     senha = models.CharField(max_length=50)
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
+    id_user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.nome

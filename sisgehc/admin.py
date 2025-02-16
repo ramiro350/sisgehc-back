@@ -1,12 +1,14 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
 from sisgehc.models import Aluno, Curso, Professor, Coordenador, Evento, Inscricao, AtividadeComplementar
 
 class Alunos(admin.ModelAdmin):
-    list_display = ('id_matricula', 'nome', 'horas_complementares', 'curso')
-    list_display_links = ('id_matricula', 'nome')
-    search_fields = ('nome',)
+    list_display = ('id_matricula', 'nome', 'horas_complementares', 'curso', 'id_user')
+    list_display_links = ('id_matricula', 'nome', 'id_user')
+    search_fields = ('nome', 'id_user')
     list_per_page = 20
 admin.site.register(Aluno, Alunos)
+    
 
 class Cursos(admin.ModelAdmin):
     list_display = ('id_curso', 'nome')
@@ -16,16 +18,16 @@ class Cursos(admin.ModelAdmin):
 admin.site.register(Curso, Cursos)
 
 class Professores(admin.ModelAdmin):
-    list_display = ('id_matricula', 'nome', 'curso', 'senha')
-    list_display_links = ('id_matricula', 'nome')
-    search_fields = ('nome',)
+    list_display = ('id_matricula', 'nome', 'curso', 'senha', 'id_user')
+    list_display_links = ('id_matricula', 'nome', 'id_user')
+    search_fields = ('nome', 'id_user')
     list_per_page = 20
 admin.site.register(Professor, Professores)
 
 class Coordenadores(admin.ModelAdmin):
-    list_display = ('id_matricula', 'nome', 'curso', 'senha')
-    list_display_links = ('id_matricula', 'nome')
-    search_fields = ('nome',)
+    list_display = ('id_matricula', 'nome', 'curso', 'senha', 'id_user')
+    list_display_links = ('id_matricula', 'nome', 'id_user')
+    search_fields = ('nome', 'id_user')
     list_per_page = 20
 admin.site.register(Coordenador, Coordenadores)
 
